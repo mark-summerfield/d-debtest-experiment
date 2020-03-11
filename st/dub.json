@@ -1,0 +1,9 @@
+{
+	"name": "debtest",
+	"authors": [ "Mark Summerfield" ],
+	"description": "???",
+	"copyright": "Copyright © 2020 Mark Summerfield. All rights reserved.",
+	"targetType": "executable",
+	"homepage": "https://www.qtrac.eu/sitemap.html#foss",
+	"license": "GPL-3.0"
+}
