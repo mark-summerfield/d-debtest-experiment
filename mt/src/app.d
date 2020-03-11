@@ -59,7 +59,7 @@ struct Model {
         try {
             auto filenames = dirEntries(PACKAGE_DIR, PACKAGE_PATTERN,
                                         SpanMode.shallow).array;
-            foreach (debs; taskPool.amap!readPackageFile(filenames))
+            foreach (debs; taskPool.map!readPackageFile(filenames))
                 foreach (deb; debs)
                     if (deb.valid)
                         debForName[deb.name] = deb.dup;
