@@ -75,7 +75,9 @@ struct Model {
             auto jobs = tids.length;
             while (jobs) {
                 receive(
-                    (Deb* deb) { debForName[deb.name] = *deb; },
+                    (immutable(Deb)* deb) {
+                        debForName[deb.name] = deb.dup;
+                    },
                     (DoneMessage m) { jobs--; }
                 );
             }
