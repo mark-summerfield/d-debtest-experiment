@@ -61,8 +61,7 @@ struct Model {
                                         SpanMode.shallow).array;
             foreach (debs; taskPool.map!readPackageFile(filenames))
                 foreach (deb; debs)
-                    if (deb.valid)
-                        debForName[deb.name] = deb.dup;
+                    debForName[deb.name] = deb.dup;
         } catch (FileException err) {
             import std.stdio: stderr;
             stderr.writeln("failed to read packages: ", err);
