@@ -59,7 +59,8 @@ struct Model {
         try {
             auto filenames = dirEntries(PACKAGE_DIR, PACKAGE_PATTERN,
                                         SpanMode.shallow).array;
-            foreach (debs; taskPool.map!readPackageFile(filenames))
+            auto units = max(2, (totalCPUs / 2) - 1);
+            foreach (debs; taskPool.map!readPackageFile(filenames, units))
                 foreach (deb; debs)
                     debForName[deb.name] = deb.dup;
         } catch (FileException err) {
