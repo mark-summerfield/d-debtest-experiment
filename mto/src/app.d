@@ -15,22 +15,22 @@ void main(const string[] args) {
 
 enum PACKAGE_DIR = "/var/lib/apt/lists";
 enum PACKAGE_PATTERN = "*Packages";
-alias Unit = void[0]; // These two lines allow me to use AAs as sets
-enum unit = Unit.init;
 alias MaybeKeyValue = Tuple!(string, "key", string, "value", bool, "ok");
 struct DoneMessage {}
 
 struct Deb {
+    import aaset: AAset;
+
     string name;
     string description;
-    Unit[string] tags; // set of tags
+    AAset!string tags;
 
     Deb* copy() const {
         Deb* deb = new Deb;
         deb.name = name;
         deb.description = description;
-        foreach (key; tags.byKey)
-            deb.tags[key] = unit;
+        foreach (key; tags)
+            deb.tags.add(key);
         return deb;
     }
 
@@ -38,8 +38,8 @@ struct Deb {
         Deb deb;
         deb.name = name;
         deb.description = description;
-        foreach (key; tags.byKey)
-            deb.tags[key] = unit;
+        foreach (key; tags)
+            deb.tags.add(key);
         return deb;
     }
 
@@ -178,5 +178,5 @@ void maybePopulateTags(ref Deb deb, const string tags) {
 
     auto rx = ctRegex!(`\s*,\s*`);
     foreach (tag; tags.split(rx))
-        deb.tags[tag] = unit;
+        deb.tags.add(tag);
 }

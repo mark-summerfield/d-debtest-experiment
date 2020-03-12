@@ -1,9 +1,14 @@
 {
-	"name": "debtest",
-	"authors": [ "Mark Summerfield" ],
-	"description": "???",
+	"authors": [
+		"Mark Summerfield"
+	],
 	"copyright": "Copyright © 2020 Mark Summerfield. All rights reserved.",
-	"targetType": "executable",
+	"dependencies": {
+		"aaset": "~>0.1.2"
+	},
+	"description": "???",
 	"homepage": "https://www.qtrac.eu/sitemap.html#foss",
-	"license": "GPL-3.0"
+	"license": "GPL-3.0",
+	"name": "debtest",
+	"targetType": "executable"
 }
