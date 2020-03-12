@@ -22,7 +22,7 @@ struct Deb {
 
     string name;
     string description;
-    AAset!string tags; // set of tags
+    AAset!string tags;
 
     Deb dup() const {
         Deb deb;
