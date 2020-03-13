@@ -4,7 +4,7 @@
 	],
 	"copyright": "Copyright © 2020 Mark Summerfield. All rights reserved.",
 	"dependencies": {
-		"aaset": "~>0.1.2"
+		"aaset": "~>0.2.2"
 	},
 	"description": "???",
 	"homepage": "https://www.qtrac.eu/sitemap.html#foss",
